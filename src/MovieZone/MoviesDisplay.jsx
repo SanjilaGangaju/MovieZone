@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import {movies} from '../movies';
 const MoviesDisplay = () => {
    const [moviesList, setMoviesList] = useState(movies);
-   const [filterMovies, setFilterMovies] = useState(movies);
+   
 
    const clickFilter = (filterValue)=>{
     const filterMovie = moviesList.filter((movies)=>
       movies.genre == filterValue)
-    setFilterMovies(filterMovie);
+    setMoviesList(filterMovie);
 
    }
    
@@ -20,12 +20,12 @@ const MoviesDisplay = () => {
       <h1>Movie Zone</h1>
       <div>
         <button onClick={()=>clickFilter("Animation")}>Animation</button>
-        <button onClick={()=>{}}>Animation</button>
+        <button onClick={()=>{setMoviesList(movies)}}>All</button>
         
       </div>
       
       <div>
-        {filterMovies.map(({name, id, image, duration, year, rating, genre})=>(
+        {moviesList.map(({name, id, image, duration, year, rating, genre})=>(
         <div key={id}>
             <img src={image}></img>
             <span>{name}</span>
