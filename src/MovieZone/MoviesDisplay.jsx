@@ -16,23 +16,33 @@ const MoviesDisplay = () => {
 
    
   return (
-    <div>
-      <h1>Movie Zone</h1>
-      <div>
-        <button onClick={()=>clickFilter("Animation")}>Animation</button>
-        <button onClick={()=>{setMoviesList(movies)}}>All</button>
+    <div  className='bg-black flex flex-col gap-5 justify-between pt-10' style={{width: "100%"}}>
+      <h1 className="text-3xl font-bold text-4xl font-mono text-white text-center">Find Your Movie </h1>
+
+      <div className="m-auto w-1/2 flex flex-wrap gap-2 h-1/1" >
+        <button className='bg-green-400 hover:bg-yellow-300 text-white font-bold py-3 px-5 rounded'  onClick={()=>{setMoviesList(movies)}}>All</button>
+        <button className='bg-green-400 hover:bg-yellow-300 text-white font-bold py-3 px-5 rounded'  onClick={()=>clickFilter("Animation")}>Animation</button>
+        <button className='bg-green-400 hover:bg-yellow-300 text-white font-bold py-3 px-5 rounded'  onClick={()=>clickFilter("Sci-Fi")}>Sci-Fi</button>
+        <button className='bg-green-400 hover:bg-yellow-300 text-white font-bold py-3 px-5 rounded'  onClick={()=>clickFilter("Musical")}>Musical</button>
+        <button className='bg-green-400 hover:bg-yellow-300 text-white font-bold py-3 px-5 rounded'  onClick={()=>clickFilter("Drama")}>Drama</button>
+        <button className='bg-green-400 hover:bg-yellow-300 text-white font-bold py-3 px-5 rounded'  onClick={()=>clickFilter("Romance")}>Romance</button>
+        <button className='bg-green-400 hover:bg-yellow-300 text-white font-bold py-3 px-5 rounded'  onClick={()=>clickFilter("Comedy")}>Comedy</button>
+        <button className='bg-green-400 hover:bg-yellow-300 text-white font-bold py-3 px-5 rounded'  onClick={()=>clickFilter("Horror")}>Horror</button>
+        <button className='bg-green-400 hover:bg-yellow-300 text-white font-bold py-3 px-5 rounded'  onClick={()=>clickFilter("Coming-of-age")}>Coming-of-age</button>
+        <button className='bg-green-400 hover:bg-yellow-300 text-white font-bold py-3 px-5 rounded'  onClick={()=>clickFilter("Thriller")}>Thriller</button>
+       
         
       </div>
       
-      <div>
+      <div className='flex flex-wrap gap-4 m-auto p-5' style={{ width: "70%"}}>
         {moviesList.map(({name, id, image, duration, year, rating, genre})=>(
         <div key={id}>
             <img src={image}></img>
-            <span>{name}</span>
-            <p>{duration}</p>
-            <p>{year}</p>
-            <p>{rating}</p>
-            <p>{genre}</p>
+            <p className='text-white text-10xl-center font-semibold'>{name}</p>
+            <p className='text-white text-10xl-center font-semibold'>{duration}</p>
+            <p className='text-white text-10xl-center font-semibold'>{year}</p>
+            <p className='text-white text-10xl-center font-semibold'>{rating}</p>
+            <p className='text-white text-10xl-center font-semibold'>{genre}</p>
         </div>)
          )}
       </div>
