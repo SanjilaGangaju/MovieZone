@@ -7,7 +7,7 @@ const MoviesDisplay = () => {
    const clickFilter = (filterValue)=>{
     const filterMovie = moviesList.filter((movies)=>
       movies.genre == filterValue)
-    setMoviesList(filterMovie);
+     setMoviesList(filterMovie);
 
    }
    
@@ -34,15 +34,15 @@ const MoviesDisplay = () => {
         
       </div>
       
-      <div className='flex flex-wrap gap-4 m-auto p-5' style={{ width: "70%"}}>
+      <div className='grid grid-cols-3 gap-5 m-auto p-5' style={{ width: "76%"}}>
         {moviesList.map(({name, id, image, duration, year, rating, genre})=>(
-        <div key={id}>
-            <img src={image}></img>
-            <p className='text-white text-10xl-center font-semibold'>{name}</p>
-            <p className='text-white text-10xl-center font-semibold'>{duration}</p>
-            <p className='text-white text-10xl-center font-semibold'>{year}</p>
-            <p className='text-white text-10xl-center font-semibold'>{rating}</p>
-            <p className='text-white text-10xl-center font-semibold'>{genre}</p>
+        <div className='bg-white max-w-80 max-h-90 overflow-hidden p-1.5 rounded border-white' key={id}>
+            <img src={image} className='w-1/1 h-1/2'></img>
+            <p className='text-black text-justify pl-2 pt-2 text-2xl font-semibold'>{name}</p>
+            <p className='text-black text-justify pl-2 pt-2 text-s font-semibold'>Duration: {duration}</p>
+            <p className='text-black text-justify pl-2 pt-2 text-s font-semibold'>Release: {year}</p>
+            <p className='text-black text-justify pl-2 pt-2 text-s font-semibold'>Rating: {rating}</p>
+            <p className='text-black text-justify pl-2 pt-2 text-s font-semibold'>Genre: {genre}</p>
         </div>)
          )}
       </div>
